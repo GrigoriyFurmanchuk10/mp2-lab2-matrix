@@ -10,8 +10,9 @@
 
 void main()
 {
-  TDynamicMatrix<int> a(5), b(5), c(5);
-  int i, j;
+  TDynamicMatrix<int> a(5), b(6), c(5);
+  cout << a + b;
+  /*int i, j;
 
   setlocale(LC_ALL, "Russian");
   cout << "Тестирование класс работы с матрицами"
@@ -25,6 +26,7 @@ void main()
   c = a + b;
   cout << "Matrix a = " << endl << a << endl;
   cout << "Matrix b = " << endl << b << endl;
-  cout << "Matrix c = a + b" << endl << c << endl;
+  cout << "Matrix c = a + b" << endl << c << endl;*/
+  
 }
 //---------------------------------------------------------------------------
