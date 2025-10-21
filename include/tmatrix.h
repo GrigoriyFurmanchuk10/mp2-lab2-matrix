@@ -61,6 +61,7 @@ public:
       sz = v.sz;
       pMem = new T[sz];
       std::copy(v.pMem, v.pMem + sz, pMem);
+      return *this;
   }
   TDynamicVector& operator=(TDynamicVector&& v) noexcept
   {
@@ -71,6 +72,7 @@ public:
       sz = 0;
       pMem = nullptr;
       swap(*this, v);
+      return *this;
   }
 
   size_t size() const noexcept 
