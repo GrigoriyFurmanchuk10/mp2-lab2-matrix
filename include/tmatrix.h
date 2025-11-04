@@ -323,6 +323,7 @@ public:
       for (size_t i = 0; i < sz; i++) {
           res.pMem[i] = pMem[i] - m.pMem[i];
       }
+      return res;
   }
 
 
@@ -340,7 +341,25 @@ public:
       return res;
   }*/
 
+  TDynamicMatrix operator*(const TDynamicMatrix& m)
+  {
+      if (sz != m.sz)
+          throw length_error("Разные длины ветора и строки матрицы");
+      TDynamicMatrix res(sz);
+      for (size_t i = 0; i < sz; i++) {
+          for (size_t j = 0; j < sz; j++) {
+              res.pMem[i][j] = 0;
+              for (size_t l = 0; l < sz; l++) {
+                  res.pMem[i][j] += pMem[i][l] * pMem[l][j];
+              }
+          }
+      }
+      return res;
+  }
+
   // ввод/вывод
+
+
   using TDynamicVector<TDynamicVector<T>>::size;
 
   friend istream& operator>>(istream& istr, TDynamicMatrix& v)
